@@ -1,0 +1,27 @@
+ALUNOS: DERICSON PABLO CALARI NUNES E GABRIEL HENRIQUE SIMIONI
+
+
+Programação Cliente/Servidor com UDP
+Considere a seguinte aplicação cliente/servidor usando o protocolo UDP:
+
+Cliente UDP: envia um vetor de números inteiros de 32 bits para o servidor.
+Servidor UDP: soma os números recebidos e devolve a resposta.
+Faça o download dos códigos servidor-udp.c, cliente-udp.c, cliente-udp.h, servidor-upd.h. Estude o código e faça as seguintes tarefas:
+
+1. Compile e execute o código. Faça testes.
+
+2. No capturador de pacotes wireshark, capture os pacotes da aplicação e responda:
+
+- quantos pacotes da aplicação foram capturados? Explique o porque desse número de pacotes.
+
+3. Comente cada linha dos códigos em um editor de textos explicando inclusive: valores de retorno das funções e parâmetros das funções da biblioteca sockets.
+
+4. Altere os programas cliente e servidor para que o servidor devolva um vetor com a soma de prefixos ao invés da soma dos valores. A soma de prefixos de um vetor [a0,a1,a2,…,an-1] é um vetor com a soma de todos os prefixos desse vetor, isto é [a0,a0+a1,a0+a1+a2,…,(a0+a1+…+an-1)].
+
+RESPOSTAS:
+
+2) Foram capturados dois pacotes, um que envia os dados e outro de recebimento dos dados.
+
+3) Códigos estao comentados.
+
+4) Códigos alterados.
