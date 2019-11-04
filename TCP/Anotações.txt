@@ -1,0 +1,46 @@
+﻿Programação Cliente/Servidor com TCP
+Soma de Inteiros - Versão TCP
+
+O TCP tem muitas vantagens e peculiaridades comparado ao UDP. O TCP é um protocolo orientado à conexões para comunicação confiável de um fluxo sequencial de octetos.
+
+Na aplicação deste trabalho, o cliente cria uma conexão TCP e envia, como primeiro valor, o número de inteiros no vetor (isto é, o tamanho do vetor) e a sequência de inteiros do vetor - todos sendo inteiros sem sinal de 32 bits. O servidor aceita a conexão TCP e processa os inteiros recebidos e devolve ao cliente, e pela mesma conexão TCP, a soma dos números no vetor.
+
+
+Algumas considerações sobre o TCP que você deve lembrar ao fazer a tarefa:
+
+    Os inteiros precisam ser convertidos para o formado de rede antes de ser transmitido.
+    
+O TCP é um serviço de fluxo de bytes e a função recv() pode receber alguns bytes e depois outros bytes, ao contrário do UDP que sempre recebe a mensagem completa. Lembre-se que os valores devolvidos pelas funções send() e recv() devem ser verificados (ou devolvem um código de erro ou o número de bytes enviados ou recebidos).
+    Toda memória alocada deve ser liberada ao final da função que alocou, mesmo em caso de ocorrência de alguma exceção que faça a função terminar antecipadamente. Um código que não libera a memória alocada gera o problema chamado de "memory leak". 
+    
+Você pode encontrar documentação nas manpages do próprio computador para as funções: recv(), recvfrom(), send(), sendto(), close(), htonl()/ntohl(), accept(), listen(), bind() and connect().
+
+Considere a seguinte aplicação cliente/servidor usando o protocolo TCP:
+
+    Cliente TCP: envia um vetor de números inteiros de 32 bits para o servidor.
+    Servidor TCP: soma os números recebidos e devolve a resposta.
+
+Estude estes código e faça as seguintes tarefas:
+
+    
+1)Compile e execute o código. Faça testes.
+
+    
+2)No capturador de pacotes wireshark, capture os pacotes da aplicação e responda: quantos pacotes da aplicação foram capturados? Explique o porque desse número de pacotes.
+    
+3)Comente cada linha dos códigos em um editor de textos explicando inclusive: valores de retorno das funções e parâmetros das funções da biblioteca sockets.
+    
+4)Altere os programas cliente e servidor para que o servidor devolva um vetor com a soma de prefixos ao invés da soma dos valores. A soma de prefixos de um vetor [a0,a1,a2,…,an−1]
+
+é um vetor com a soma de todos os prefixos desse vetor, isto é [a0,a0+a1,a0+a1+a2,…,(a0+a1+…+an−1)].
+
+
+
+RESPOSTAS:
+
+
+1) Compilado e executado, quando o cliente foi compilado o resultado foi 500500.
+
+2) Foram capturados 14 pacotes, sendo 13 do tipo TCP e um SMPP, os 3 primeiros pacotes são para abertura de conexao, os ultimos 3 pacotes para fechar a conexao, um pacote enviando os dados com 4004 bytes que é o SMPP, um pacote com ack de tamanho 0, e uma resposta do servidor do tipo inteiro que o mesmo envia para o cliente
+
+
